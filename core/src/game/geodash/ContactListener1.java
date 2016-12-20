@@ -6,8 +6,6 @@ import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
 
-import static game.geodash.GamGeoDash.bPlayerDead;
-
 /**
  * Created by hafiz on 12/18/2016.
  */
@@ -25,9 +23,7 @@ public class ContactListener1 implements ContactListener {
             return;
         }
         if (PlayerSpikeContact(a, b) == true) {
-            //System.out.println(bPlayerDead);
-            bPlayerDead = true;
-            //System.out.println(bPlayerDead);
+            //bPlayerDead = true;
         }
 
     }

@@ -30,7 +30,7 @@ public class GamGeoDash extends Game {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, nWidth / 2 / Scale, nHeight / 2 / Scale);
 		camera.position.set(nWidth / 2, nHeight / 2, 0);
-		world = new World(new Vector2(0, -9.8f), false);
+		world = new World(new Vector2(0, -100f), false);
 		b2dr = new Box2DDebugRenderer();
 		scrPlay = new ScrPlay(this);
 		bPlayerDead = false;
@@ -53,7 +53,7 @@ public class GamGeoDash extends Game {
 		camera.position.y = scrPlay.player.getPosition().y + 120;
 		//System.out.println(camera.position.x);
 		camera.position.x = MathUtils.clamp(camera.position.x, 350, 14000);
-		camera.position.y = MathUtils.clamp(camera.position.y, 200, 400);
+		camera.position.y = MathUtils.clamp(camera.position.y, 200, 300);
 		camera.update();
 		batch.setProjectionMatrix(camera.combined);
 		//b2dr.render(world, camera.combined);

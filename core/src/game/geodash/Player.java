@@ -21,23 +21,19 @@ import static game.geodash.GamGeoDash.PPM;
 
 public class Player implements InputProcessor {
     private Vector2 vPos, vInitialPos;
-    private float fLength;
     private World world;
     private Body pBody;
-    private String sPath;
     private Sprite spPlayer;
     private float fSpeed, fJumpHeight;
 
     public Player(Vector2 vPos, float fLength, World world, String sPath) {
         this.vPos = new Vector2(vPos);
         vInitialPos = new Vector2(vPos);
-        this.fLength = fLength;
         this.world = world;
-        this.sPath = sPath;
         pBody = createBody(vPos, fLength);
         spPlayer = new Sprite(new Texture(sPath));
-        fSpeed = 10;
-        fJumpHeight = 1000 * fSpeed;
+        fSpeed = 7;
+        fJumpHeight = -world.getGravity().scl(15).y;
         Gdx.input.setInputProcessor(this);
     }
 
@@ -45,7 +41,7 @@ public class Player implements InputProcessor {
         Body pBody;
         BodyDef def = new BodyDef();
         def.type = BodyDef.BodyType.DynamicBody;
-        def.fixedRotation = true;
+        def.fixedRotation = false;
         def.position.set(vPos.x / PPM, vPos.y / PPM);
 
         PolygonShape shape = new PolygonShape();
@@ -53,7 +49,7 @@ public class Player implements InputProcessor {
 
         FixtureDef fixDef = new FixtureDef();
         fixDef.shape = shape;
-        fixDef.density = 10f;
+        fixDef.density = 1;
 
         pBody = world.createBody(def);
         pBody.createFixture(fixDef).setUserData(this);
@@ -69,7 +65,6 @@ public class Player implements InputProcessor {
     }
 
     public void move() {
-        world.setGravity(new Vector2(0, -pBody.getPosition().y * 5));
         pBody.setLinearVelocity(fSpeed, pBody.getLinearVelocity().y);
     }
 
