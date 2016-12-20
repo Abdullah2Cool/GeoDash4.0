@@ -32,8 +32,9 @@ public class Player implements InputProcessor {
         this.world = world;
         pBody = createBody(vPos, fLength);
         spPlayer = new Sprite(new Texture(sPath));
-        fSpeed = 7;
-        fJumpHeight = -world.getGravity().scl(15).y;
+        fSpeed = 8.3f;
+        fJumpHeight = -world.getGravity().scl(15f).y;
+        System.out.println(fJumpHeight);
         Gdx.input.setInputProcessor(this);
     }
 
@@ -49,7 +50,7 @@ public class Player implements InputProcessor {
 
         FixtureDef fixDef = new FixtureDef();
         fixDef.shape = shape;
-        fixDef.density = 1;
+        fixDef.density = 1.2f;
 
         pBody = world.createBody(def);
         pBody.createFixture(fixDef).setUserData(this);
