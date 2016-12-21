@@ -22,7 +22,7 @@ public class ScrPlay implements Screen {
     public ScrPlay(GamGeoDash game) {
         this.game = game;
         map = new Map("map.tmx", game.world);
-        player = new Player(new Vector2(50, 200), 32, this.game.world, "geoDash.png");
+        player = new Player(new Vector2(150, 200), 32, this.game.world, "geoDash.png");
         batch = game.batch;
         contactListener = new ContactListener1();
         this.game.world.setContactListener(contactListener);
@@ -35,7 +35,7 @@ public class ScrPlay implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClearColor(46/255f, 210/255f, 255/255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         map.draw(game.camera);
         batch.begin();

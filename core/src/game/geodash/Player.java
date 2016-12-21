@@ -32,8 +32,8 @@ public class Player implements InputProcessor {
         this.world = world;
         pBody = createBody(vPos, fLength);
         spPlayer = new Sprite(new Texture(sPath));
-        fSpeed = 8.3f;
-        fJumpHeight = -world.getGravity().scl(15f).y;
+        fSpeed = 8.2f;
+        fJumpHeight = -world.getGravity().scl(15.5f).y;
         System.out.println(fJumpHeight);
         Gdx.input.setInputProcessor(this);
     }
@@ -70,7 +70,7 @@ public class Player implements InputProcessor {
     }
 
     public void reset () {
-        pBody.setTransform(vInitialPos.x / PPM, vInitialPos.y / PPM, 0);
+        //pBody.setTransform(vInitialPos.x / PPM, vInitialPos.y / PPM, 0);
     }
 
     public Vector2 getPosition() {
