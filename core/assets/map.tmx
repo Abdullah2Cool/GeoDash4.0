@@ -6,7 +6,7 @@
  <tileset firstgid="100" name="BG" tilewidth="30" tileheight="30" tilecount="49" columns="7">
   <image source="BG.jpg" width="236" height="236"/>
  </tileset>
- <tileset firstgid="149" name="test" tilewidth="32" tileheight="32" spacing="1" margin="1" tilecount="513" columns="18">
+ <tileset firstgid="149" name="test" tilewidth="32" tileheight="32" spacing="1" margin="1" tilecount="450" columns="18">
   <image source="tiles-01-01-01.png" width="596" height="842"/>
  </tileset>
  <layer name="BG" width="500" height="25" visible="0">
